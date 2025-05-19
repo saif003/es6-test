@@ -4,7 +4,8 @@
 function varVsLetAndHoistingTest() {
   console.log("testting", i, j, funcs);
   // hello
-  // bro
+  // bro 22
+  //leave me now
   let funcs = [];
   // let's create 3 functions
   for (let i = 0; i < 3; i++) {
