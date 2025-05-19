@@ -2,15 +2,15 @@
 //stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var
 
 function varVsLetAndHoistingTest() {
-  console.log('testting', i, j, funcs);
-
+  console.log("testting", i, j, funcs);
+  // hello
   let funcs = [];
   // let's create 3 functions
   for (let i = 0; i < 3; i++) {
     // and store them in funcs
     funcs[i] = function () {
       // each should log its value.
-      console.log('My value: ' + i);
+      console.log("My value: " + i);
     };
   }
   for (let j = 0; j < 3; j++) {
@@ -22,7 +22,7 @@ function varVsLetAndHoistingTest() {
     setTimeout(function () {
       console.log(j);
     }, 10000);
-    console.log('outside timeout', j);
+    console.log("outside timeout", j);
   }
   // above get compiled to following in ES5
 
@@ -30,7 +30,7 @@ function varVsLetAndHoistingTest() {
     setTimeout(function () {
       console.log(j);
     }, 10000);
-    console.log('outside timeout', j);
+    console.log("outside timeout", j);
   };
 
   for (var j = 0; j < 3; j++) {
@@ -50,15 +50,15 @@ let scopedLet = 5;
  */
 
 function varVsLetRedeclarationTest() {
-  var foo = 'foo1';
-  var foo = 'foo2'; // No problem, 'foo' is replaced.
+  var foo = "foo1";
+  var foo = "foo2"; // No problem, 'foo' is replaced.
 
-  let bar = 'bar1';
+  let bar = "bar1";
   // let bar = "bar2"; // SyntaxError: Identifier 'bar' has already been declared
 
-  console.log('foo', foo);
+  console.log("foo", foo);
 
-  console.log('bar', bar);
+  console.log("bar", bar);
 }
 
 // varVsLetRedeclarationTest();
@@ -91,12 +91,12 @@ function functionalHoistingTest() {
 
 function arrowVsRegularFunctions() {
   const x1 = {
-    y: 'i am y inside x1',
+    y: "i am y inside x1",
     z: () => {
-      console.log('in z, y is ', this.y);
+      console.log("in z, y is ", this.y);
     },
     z1: function () {
-      console.log('in z1, y is ', this.y);
+      console.log("in z1, y is ", this.y);
     },
   };
 
@@ -164,11 +164,11 @@ function destructuringTest() {
       y: { z },
     },
   } = x;
-  console.log('a is', a);
+  console.log("a is", a);
 
-  console.log('d is', d);
+  console.log("d is", d);
 
-  console.log('z is', z);
+  console.log("z is", z);
   const arr = [1, [6, 7, 8], { a1: 8, a2: 10 }];
   const [len, [width], { a1: obj }] = arr;
   console.log(len, width, obj);
@@ -180,14 +180,14 @@ function destructuringTest() {
  */
 function closuresTest() {
   function parent(p1, p2) {
-    let v1 = 'v1',
-      v2 = 'v2';
+    let v1 = "v1",
+      v2 = "v2";
     function child() {
       return v1 + v2 + p1 + p2;
     }
     return child();
   }
-  console.log(parent('p1', 'p2'));
+  console.log(parent("p1", "p2"));
 }
 // closuresTest();
 
@@ -206,14 +206,14 @@ function HOF_Test() {
 
 function generatorTest() {
   function* gen() {
-    console.log('random');
-    yield 'hello';
+    console.log("random");
+    yield "hello";
 
-    console.log('random');
-    yield 'world';
-    yield 'bye bye';
-    yield 'bye world';
-    yield* ['a', 'b', 'c'];
+    console.log("random");
+    yield "world";
+    yield "bye bye";
+    yield "bye world";
+    yield* ["a", "b", "c"];
   }
   const it = gen();
   for (const itItem of it) {
@@ -231,16 +231,15 @@ function setsTest() {
   s.delete(2);
   console.log(s.has(3));
   console.log(s.values());
-  
+
   function* gen() {
-    yield 'hello';
-    yield 'world';
-    yield 'bye bye';
-    yield 'bye world';
-    yield* ['a', 'b', 'c'];
+    yield "hello";
+    yield "world";
+    yield "bye bye";
+    yield "bye world";
+    yield* ["a", "b", "c"];
   }
   const s2 = new Set(gen());
   console.log(s2.size);
 }
 // setsTest();
-
